@@ -1,14 +1,29 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 // go run *.go
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Printf("Error getting env, not comming through %v", err)
+	}
+
+	port := os.Getenv("PORT")
+	fmt.Println(port)
+	
 	e := echo.New()
+	
+	e.Use(middleware.Logger())
+
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
@@ -20,5 +35,5 @@ func main() {
 	e.GET("/admin", h.private, isLoggedIn, isAdmin)
 	e.POST("/token", h.token)
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":" + port))
 }

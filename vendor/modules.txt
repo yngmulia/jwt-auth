@@ -1,6 +1,11 @@
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 ## explicit
 github.com/dgrijalva/jwt-go
+# github.com/gorilla/mux v1.7.4
+## explicit
+# github.com/joho/godotenv v1.3.0
+## explicit
+github.com/joho/godotenv
 # github.com/labstack/echo v3.3.10+incompatible
 ## explicit
 github.com/labstack/echo
@@ -17,6 +22,8 @@ github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.4
 ## explicit
 github.com/mattn/go-isatty
+# github.com/mitchellh/mapstructure v1.3.0
+## explicit
 # github.com/valyala/bytebufferpool v1.0.0
 ## explicit
 github.com/valyala/bytebufferpool
