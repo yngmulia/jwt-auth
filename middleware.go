@@ -2,14 +2,19 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
 
+// fmt.Println(os.Getenv("JWT_KEY"))
+
+var jwtKey = os.Getenv("JWT_KEY")
+
 var isLoggedIn = middleware.JWTWithConfig(middleware.JWTConfig{
-	SigningKey: []byte("secret"),
+	SigningKey: []byte("local-ivan"),
 })
 
 func isAdmin(next echo.HandlerFunc) echo.HandlerFunc {

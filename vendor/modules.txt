@@ -1,6 +1,15 @@
+# github.com/0xAX/notificator v0.0.0-20191016112426-3962a5ea8da1
+## explicit
+# github.com/codegangsta/envy v0.0.0-20141216192214-4b78388c8ce4
+## explicit
+# github.com/codegangsta/gin v0.0.0-20171026143024-cafe2ce98974
+## explicit
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 ## explicit
 github.com/dgrijalva/jwt-go
+# github.com/joho/godotenv v1.3.0
+## explicit
+github.com/joho/godotenv
 # github.com/labstack/echo v3.3.10+incompatible
 ## explicit
 github.com/labstack/echo
@@ -17,6 +26,8 @@ github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.4
 ## explicit
 github.com/mattn/go-isatty
+# github.com/mattn/go-shellwords v1.0.10
+## explicit
 # github.com/valyala/bytebufferpool v1.0.0
 ## explicit
 github.com/valyala/bytebufferpool
@@ -30,3 +41,5 @@ golang.org/x/crypto/acme/autocert
 # golang.org/x/sys v0.0.0-20181026203630-95b1ffbd15a5
 ## explicit
 golang.org/x/sys/unix
+# gopkg.in/urfave/cli.v1 v1.20.0
+## explicit

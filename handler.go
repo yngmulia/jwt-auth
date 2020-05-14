@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
@@ -51,7 +52,7 @@ func (h *handler) token(c echo.Context) error {
 		}
 
 		// hmacSampleSecret is a []byte containing your secret, e.g. []byte("my_secret_key")
-		return []byte("secret"), nil
+		return []byte(os.Getenv("JWT_KEY")), nil
 	})
 
 	if err != nil {
@@ -84,6 +85,8 @@ func (h *handler) token(c echo.Context) error {
 func (h *handler) private(c echo.Context) error {
 	user := c.Get("user").(*jwt.Token)
 	claims := user.Claims.(jwt.MapClaims)
-	name := claims["name"].(string)
-	return c.String(http.StatusOK, "Welcome "+name+"!")
+	// name := claims["name"].(string)
+	// return c.String(http.StatusOK, "Welcome " + name + "!")
+	email := claims["email"].(string)
+	return c.String(http.StatusOK, "Welcome " + email + "!")
 }
