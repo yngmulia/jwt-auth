@@ -54,6 +54,12 @@ func (h *handler) token(c echo.Context) error {
 		return []byte("secret"), nil
 	})
 
+	if err != nil {
+		fmt.Println("err", err) // Ugly debug output
+		// w.WriteHeader(http.StatusInternalServerError) // Proper HTTP response
+		return err
+	}
+
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 		// Get the user record from database or
 		// run through your business logic to verify if the user can log in

@@ -6,6 +6,7 @@ import (
 	"github.com/labstack/echo"
 )
 
+// go run *.go
 func main() {
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
@@ -15,11 +16,8 @@ func main() {
 	h := &handler{}
 
 	e.POST("/login", h.login)
-
 	e.GET("/private", h.private, isLoggedIn)
-
 	e.GET("/admin", h.private, isLoggedIn, isAdmin)
-
 	e.POST("/token", h.token)
 
 	e.Logger.Fatal(e.Start(":1323"))

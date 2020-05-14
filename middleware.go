@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -15,6 +17,7 @@ func isAdmin(next echo.HandlerFunc) echo.HandlerFunc {
 		user := c.Get("user").(*jwt.Token)
 		claims := user.Claims.(jwt.MapClaims)
 		isAdmin := claims["admin"].(bool)
+		fmt.Println(isAdmin)
 
 		if isAdmin == false {
 			return echo.ErrUnauthorized
